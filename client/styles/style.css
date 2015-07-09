@@ -1,0 +1,31 @@
+/********************
+LAYOUT
+*********************/
+
+.nav-link, .footer-link {
+  padding-right: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+nav, footer {
+  background-color: grey;
+  height: 60px;
+  line-height: 60px;
+}
+
+nav {
+  text-align: right;
+}
+
+footer {
+  text-align: center;
+}
+
+/********************
+CONTENT
+*********************/
+
+.content {
+  min-height: 580px;
+}
