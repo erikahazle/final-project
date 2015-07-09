@@ -29,3 +29,42 @@ CONTENT
 .content {
   min-height: 580px;
 }
+
+/********************
+CREATE HERB KIT PAGE
+*********************/
+
+h3 {
+  text-align: center;
+  height: 50px;
+  padding: 20px;
+}
+
+.create-product-display, .create-product-options {
+  min-height: 600px;
+  display: inline-block;
+  float: left;
+}
+
+.create-product-display {
+  width: 70%;
+}
+
+.create-product-options {
+  width: 30%;
+  background-color: grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

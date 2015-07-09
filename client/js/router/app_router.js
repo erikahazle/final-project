@@ -1,11 +1,18 @@
 app.AppRouter = Backbone.Router.extend({
   routes: {
-    "": "home",
-    "#create": "createHerbKit"
+    "/create": "createHerbKit",
+    "": "home"
   },
   initialize: function() {
     app.layoutView = new app.LayoutView();
-    // debugger;
-    $('.page-wrapper').html(app.layoutView.render().el)
+    $('.page-wrapper').html(app.layoutView.render().el);
+  },
+  home: function() {
+
+  },
+  createHerbKit: function() {
+    debugger;
+    app.createHerbKitView = new app.CreateHerbKitView();
+    $('.content').html(app.createHerbKitView.render().el);
   }
 })
