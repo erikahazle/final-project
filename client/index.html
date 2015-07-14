@@ -11,18 +11,56 @@
   <script src="js/collections/products.js"></script>
   <script src="js/views/layout_view.js"></script>
   <script src="js/router/app_router.js"></script>
+  <script src="js/views/create_herb_kit_view.js"></script>
+  <script src="js/views/herb_kit_options_view.js"></script>
+  <script src="js/models/user_signup.js"></script>
+  <script src="js/views/signup_view.js"></script>
+
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.2/css/foundation.css">
   <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css">
 </head>
 <body>
 
   <div class="page-wrapper"></div>
 
+  <script type="text/x-underscore-template" id="signup-form">
+    <h2 id="signup-h2">Sign up here</h2>
+    <form id="signup">
+        <input type="text" id="name" name="name" placeholder="Please enter your name"/>
+        <input type="text" id="email" name="email" placeholder="Please enter your email"/>
+        <input type="password" id="password" name="password" placeholder="Please enter your password"/>
+        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Please confirm your password"/>
+        <input type="submit" value="Sign up" class="submit"/>
+    </form>
+  </script>
+
+  <script type="text/x-underscore-template" id="product-option-view">
+      <img src="<%= image %>" class="options-img">
+      <p class="options-info"><%= name %></p>
+      <p class="options-info">£<%= price %></p>
+  </script>
+    
   <script type="text/x-underscore-template" id="create-herb-kit-view">
     <h3>Build your own Kitchen Garden</h3>
-    <div class="create-product-display"></div>
-    <div class="create-product-options"></div>
+    <svg version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg" id="create-product-display"></svg>
+    <div class="create-product-options">
+      <div>
+        <h3>Planters <i class="fa fa-arrow-down"></i></h3>
+        <ul class="planter-options"></ul>
+      </div>
+      <div>
+        <h3>Herbs <i class="fa fa-arrow-down"></i></h3>
+        <ul class="herb-options hide"></ul>
+      </div>
+      <div>
+        <h3 class="checkout">Happy? Checkout here...</h3>
+      </div>
+    </div>
   </script>
   
 
@@ -31,6 +69,7 @@
       <a href="#"  class="nav-link">HOME</a>
       <a href="#create" class="nav-link">CREATE YOUR OWN</a>
       <a href="#products" class="nav-link">PRODUCTS</a>
+      <a href="#signup" class="nav-link">Sign Up</a>
     </nav>
 
     <div class="content"></div>

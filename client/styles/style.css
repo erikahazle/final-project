@@ -5,21 +5,24 @@ LAYOUT
 .nav-link, .footer-link {
   padding-right: 20px;
   font-size: 20px;
-  color: white;
+  text-decoration: none;
+  color: rgb(61, 66, 63);
 }
 
 nav, footer {
-  background-color: grey;
+  background-color: rgb(210, 227, 214);
   height: 60px;
   line-height: 60px;
 }
 
 nav {
   text-align: right;
+  /*border-bottom: 4px solid black;*/
 }
 
 footer {
   text-align: center;
+  clear: both;
 }
 
 /********************
@@ -38,23 +41,51 @@ h3 {
   text-align: center;
   height: 50px;
   padding: 20px;
+  background-color: green;
 }
 
-.create-product-display, .create-product-options {
+#create-product-display, .create-product-options {
   min-height: 600px;
   display: inline-block;
   float: left;
 }
 
-.create-product-display {
+#create-product-display {
   width: 70%;
 }
 
 .create-product-options {
   width: 30%;
-  background-color: grey;
 }
 
+.create-product-options h3 {
+  background-color: rgb(210, 227, 214);
+  border: 2px dotted rgb(61, 66, 63);
+  color: rgb(61, 66, 63);
+  height: 25px;
+}
+
+.create-product-options h3 i {
+  float: right;
+}
+
+.checkout {
+  background-color: rgb(134, 145, 138);
+}
+
+.herb-option, .planter-option {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+}
+
+.options-img {
+  height: 100px;
+}
+
+.hide {
+  display: none;
+}
 
 
 
