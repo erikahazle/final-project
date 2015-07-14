@@ -30,7 +30,9 @@ app.LoginView = Backbone.View.extend({
         data: {email: email, password: password},
         dataType: 'json'
       }).done(function(data) {
-        console.log(data);
+        Cookies.set("authentication_token", data.authentication_token);
+        app.router.navigate('#profile');
+        app.router.showUserProfile();
       })
       
     })

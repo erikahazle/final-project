@@ -4,6 +4,6 @@ app.UserProfileView = Backbone.View.extend({
   },
   render: function() {
     // debugger;
-    $('.content').html(this.template(this.model.toJSON()));
+    $('.content').html(this.template);
   }
 })

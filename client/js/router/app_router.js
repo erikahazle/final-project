@@ -6,15 +6,14 @@ app.AppRouter = Backbone.Router.extend({
     "products": "showProducts",
     "signup": "signupForm",
     "login": "loginForm",
-    "users/sign_in": "signIn",
-    "users/sign_up": "signUp"
+    "profile": "showUserProfile"
   },
   initialize: function() {
     app.layoutView = new app.LayoutView();
     $('.page-wrapper').html(app.layoutView.render().el);
   },
   showProducts: function() {
-
+    console.log('showing products');
   },
   home: function() {
 
@@ -29,7 +28,7 @@ app.AppRouter = Backbone.Router.extend({
         app.createHerbKitView.render();
       },
       error: function(){
-        console.log("Database is not connecting")
+        console.log("Database is not connecting");
       }
     });
   },
@@ -43,17 +42,9 @@ app.AppRouter = Backbone.Router.extend({
     app.loginForm.render();
   },
   showUserProfile: function() {
-    console.log('showing user profile');
-    // app.profile = new app.UserProfileView({model: newUser});
-    // app.profile.render();
-  },
-  signIn: function() {
-    console.log("sign in route");
-  },
-  signUp: function() {
-    console.log("sign up route");
-    app.signupForm = new app.SignupView();
-    app.signupForm.render();
+    // console.log('showing user profile');
+    app.profile = new app.UserProfileView();
+    app.profile.render();
   }
 
   
