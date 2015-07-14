@@ -2,6 +2,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   include ActionController::MimeResponds
   include ActionController::ImplicitRender
 
+   # POST /resource
+ def create
+   # binding.pry
+   user = User.new([email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation]])
+   user.save
+   # binding.pry
+   if user.persisted?
+    render json: ["your account has been successfully created"]
+   else
+    render status: 422, json: resource.errors.full_messages
+   end
+ end
+
+
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
 
@@ -11,11 +25,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    # super
-    user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
-    render json: user if user.save
-  end
+  # def create
+  #   # super
+  #   user = User.create(email: params[:email], password: params[:password], password_confirmation: params[:password_confirmation])
+  #   render json: user if user.save
+  # end
 
   # GET /resource/edit
   # def edit

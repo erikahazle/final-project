@@ -10,21 +10,15 @@ app.SignupView = Backbone.View.extend({
 
     $('#signup').on('submit', function(e) {
       e.preventDefault();
-      var name = $("#name").val();
       var email = $("#email").val();
       var password = $("#password").val();
       var password_confirmation = $("#password_confirmation").val();
-      // debugger;
+
       var newUser = new app.UserSignup({'email': email, 'password': password, 'password_confirmation': password_confirmation});
-      newUser.save();
-      // $.ajax({
-      //   type: 'POST',
-      //   url: 'http://localhost:3000/users',
-      //   data: {'email': email, 'password': password, 'password_confirmation': password_confirmation},
-      //   dataType: 'json'
-      // }).done(function(data) {
-      //   console.log(data);
-      // })
+      if (newUser.save()){
+        console.log(newUser);
+        // window.location.hash = 'user/' + new;
+      }
 
     })
   }
