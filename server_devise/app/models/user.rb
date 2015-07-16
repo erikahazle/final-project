@@ -14,8 +14,10 @@ class User < ActiveRecord::Base
    end
 
    def ensure_authentication_token
+    # binding.pry
      if authentication_token.blank?
        self.authentication_token = generate_authentication_token
      end
    end
+
 end

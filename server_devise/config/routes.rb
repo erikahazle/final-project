@@ -8,6 +8,11 @@ Rails.application.routes.draw do
         registrations: 'users/registrations'
       }
 
+  devise_scope :user do 
+    get "/users/:authentication_token", to: "sessions#show"
+    delete "/users/:authentication_token", to: "sessions#destroy"
+  end
+
   
 
   # The priority is based upon order of creation: first created -> highest priority.
