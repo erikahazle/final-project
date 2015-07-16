@@ -73,24 +73,10 @@ app.HerbKitOptionsView = Backbone.View.extend({
       });
     } else if ($('#Planter_3-img').attr('visibility') === 'visible') {
       // debugger;
-      // checking the position of the herb
       if (herbNumber[0] == 'Thyme-img') {
         $('#Thyme-img').attr({
-          height: '250px',
-          y: '178px',
-          x: '120px'
-        });
-      } else if (herbNumber[0] == 'Basil-img') {
-        $('#Basil-img').attr({
-          height: '150px',
-          y: '228px',
-          x: '115px'
-        });
-      } else if (herbNumber[0] == 'Mint-img') {
-        $('#Mint-img').attr({
-          height: '400px',
-          y: '-110px',
-          x: '220px'
+          height: '200px',
+          y: '200px'
         });
       }
 

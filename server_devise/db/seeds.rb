@@ -7,6 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 planter1 = Product.create(name: 'Planter', price: 5.50, description: 'handmade planter that will look great on any windowsill', product_type: 'planter', capacity: 1, image: './images/herb-pan.png')
+planter2 = Product.create(name: 'Planter_2', price: 5.50, description: 'handmade planter that will look great on any windowsill', product_type: 'planter', capacity: 1, image: './images/planter2.png')
+planter2 = Product.create(name: 'Planter_3', price: 5.50, description: 'handmade planter that will look great on any windowsill', product_type: 'planter', capacity: 2, image: './images/planter3.png')
 
 
 herb1 = Product.create(name: 'Basil', price: 2.00, description: 'basil plant', product_type: 'herb', image: './images/basil.png')

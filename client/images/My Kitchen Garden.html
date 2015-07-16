@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)http://localhost:9000/#create -->
+<html lang="en" hola_ext_inject="disabled"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="UTF-8">
+  <title>My Kitchen Garden</title>
+  <script src="./My Kitchen Garden_files/jquery.min.js"></script><style type="text/css"></style>
+  <script src="./My Kitchen Garden_files/js.cookie.js"></script>
+  <script src="./My Kitchen Garden_files/underscore-min.js"></script>
+  <script src="./My Kitchen Garden_files/backbone.js"></script>
+
+  <script src="./My Kitchen Garden_files/app.js"></script>
+  <script src="./My Kitchen Garden_files/product.js"></script>
+  <script src="./My Kitchen Garden_files/products.js"></script>
+  <script src="./My Kitchen Garden_files/layout_view.js"></script>
+  <script src="./My Kitchen Garden_files/app_router.js"></script>
+  <script src="./My Kitchen Garden_files/logged_out_view.js"></script>
+  <script src="./My Kitchen Garden_files/logged_in_view.js"></script>
+  <script src="./My Kitchen Garden_files/create_herb_kit_view.js"></script>
+  <script src="./My Kitchen Garden_files/herb_kit_options_view.js"></script>
+  <script src="./My Kitchen Garden_files/user_signup.js"></script>
+  <script src="./My Kitchen Garden_files/signup_view.js"></script>
+  <script src="./My Kitchen Garden_files/user_profile_view.js"></script>
+  <script src="./My Kitchen Garden_files/login_view.js"></script>
+  <script src="./My Kitchen Garden_files/user.js"></script>
+  <script src="./My Kitchen Garden_files/home_view.js"></script>
+
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
+  <link rel="stylesheet" href="http://localhost:9000/styles/style.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/animate.css/3.3.0/animate.min.css">
+</head>
+<body cz-shortcut-listen="true">
+
+  <div class="page-wrapper"><div>
+    <nav id="nav">
+      <a href="http://localhost:9000/#" class="nav-link">HOME</a>
+      <a href="./My Kitchen Garden_files/My Kitchen Garden.html" class="nav-link">CREATE YOUR OWN</a>
+      <a href="http://localhost:9000/#products" class="nav-link">PRODUCTS</a>
+    
+    <a href="http://localhost:9000/#signup" class="nav-link logged-out">Sign Up</a>
+    <a href="http://localhost:9000/#login" class="nav-link logged-out">Log In</a>
+  </nav>
+
+    <div class="content"><div>
+    <h3>Build your own Kitchen Garden</h3>
+    <svg version="1.1" baseProfile="full" xmlns="http://www.w3.org/2000/svg" id="create-product-display"><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/herb-pan.png" x="185px" y="250px" height="350px" width="600px" visibility="hidden" id="Planter-img" class="svg-planter-products"></image></svg><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/planter2.png" x="185px" y="250px" height="350px" width="600px" visibility="hidden" id="Planter_2-img" class="svg-planter-products"></image></svg><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/planter3.png" x="185px" y="250px" height="350px" width="600px" visibility="visible" id="Planter_3-img" class="svg-planter-products"></image></svg><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/basil.png" x="185px" y="120px" height="280px" width="600px" visibility="hidden" id="Basil-img" class="svg-herb-products"></image></svg><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/thyme.png" x="120px" y="200px" height="250px" width="600px" visibility="visible" id="Thyme-img" class="svg-herb-products"></image></svg><svg><image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="./images/mint.png" x="185px" y="120px" height="280px" width="600px" visibility="hidden" id="Mint-img" class="svg-herb-products"></image></svg></svg>
+    <div class="create-product-options">
+      <div>
+        <h3>Planters <i class="fa fa-arrow-down"></i></h3>
+        <ul class="planter-options"><li class="planter-option">
+      <img src="./My Kitchen Garden_files/herb-pan.png" class="options-img">
+      <p class="options-info">Planter</p>
+      <p class="options-info">£5.5</p>
+  </li><li class="planter-option">
+      <img src="./My Kitchen Garden_files/planter2.png" class="options-img">
+      <p class="options-info">Planter_2</p>
+      <p class="options-info">£5.5</p>
+  </li><li class="planter-option">
+      <img src="./My Kitchen Garden_files/planter3.png" class="options-img">
+      <p class="options-info">Planter_3</p>
+      <p class="options-info">£5.5</p>
+  </li></ul>
+      </div>
+      <div>
+        <h3>Herbs <i class="fa fa-arrow-down"></i></h3>
+        <ul class="herb-options"><li class="herb-option">
+      <img src="./My Kitchen Garden_files/basil.png" class="options-img">
+      <p class="options-info">Basil</p>
+      <p class="options-info">£2.0</p>
+  </li><li class="herb-option">
+      <img src="./My Kitchen Garden_files/thyme.png" class="options-img">
+      <p class="options-info">Thyme</p>
+      <p class="options-info">£2.0</p>
+  </li><li class="herb-option">
+      <img src="./My Kitchen Garden_files/mint.png" class="options-img">
+      <p class="options-info">Mint</p>
+      <p class="options-info">£2.0</p>
+  </li></ul>
+      </div>
+      <div>
+        <h3 class="checkout">Happy? Checkout here...</h3>
+      </div>
+    </div>
+  </div></div>
+
+    <footer>
+      <a href="http://localhost:9000/#about" class="footer-link">ABOUT</a>
+      <a href="http://localhost:9000/#contact" class="footer-link">CONTACT</a>
+    </footer>
+  </div></div>
+
+
+  <script type="text/x-underscore-template" id="home-view">
+    <div class="home-content">
+      <h2>Grow your own Kitchen garden</h2>
+      <a href="#create" id="grow-button">Create your Herb Kit</a>
+    </div>
+  </script>
+
+  <script type="text/x-underscore-template" id="user-profile">
+    <div class="user-details">
+      <h2>Your details:</h2>
+      <p>Password: ********</p>
+      <p>Email: <%= email %></p>
+    </div>
+    <div>
+      <h2>Recent orders:</h2>
+    </div>
+  </script>
+
+  <script type="text/x-underscore-template" id="login-form">
+    <h2>Please enter your login details</h2>
+    <form id="login">
+        <input type="text" id="email" name="email" placeholder="Please enter your email"/>
+        <input type="password" id="password" name="password" placeholder="Please enter your password"/>
+        <input type="submit" value="Login" class="submit"/>
+    </form>
+  </script>
+
+  <script type="text/x-underscore-template" id="signup-form">
+    <h2 id="signup-h2">Sign up here</h2>
+    <form id="signup">
+        <input type="text" id="name" name="name" placeholder="Please enter your name"/>
+        <input type="text" id="email" name="email" placeholder="Please enter your email"/>
+        <input type="password" id="password" name="password" placeholder="Please enter your password"/>
+        <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Please confirm your password"/>
+        <input type="submit" value="Sign up" class="submit"/>
+    </form>
+  </script>
+
+  <script type="text/x-underscore-template" id="product-option-view">
+      <img src="<%= image %>" class="options-img">
+      <p class="options-info"><%= name %></p>
+      <p class="options-info">£<%= price %></p>
+  </script>
+    
+  <script type="text/x-underscore-template" id="create-herb-kit-view">
+    <h3>Build your own Kitchen Garden</h3>
+    <svg version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg" id="create-product-display"></svg>
+    <div class="create-product-options">
+      <div>
+        <h3>Planters <i class="fa fa-arrow-down"></i></h3>
+        <ul class="planter-options"></ul>
+      </div>
+      <div>
+        <h3>Herbs <i class="fa fa-arrow-down"></i></h3>
+        <ul class="herb-options hide"></ul>
+      </div>
+      <div>
+        <h3 class="checkout">Happy? Checkout here...</h3>
+      </div>
+    </div>
+  </script>
+
+  <script type="text/x-underscore-template" id="logged-out-view">
+    <a href="#signup" class="nav-link logged-out">Sign Up</a>
+    <a href="#login" class="nav-link logged-out">Log In</a>
+  </script>
+
+  <script type="text/x-underscore-template" id="logged-in-view">
+    <a href="#logout" class="nav-link logged-in">Log Out</a>
+    <a href="#account" class="nav-link logged-in">Account</a>
+  </script>
+  
+
+  <script type="text/x-underscore-template" id="layout-view">
+    <nav id="nav">
+      <a href="#"  class="nav-link">HOME</a>
+      <a href="#create" class="nav-link">CREATE YOUR OWN</a>
+      <a href="#products" class="nav-link">PRODUCTS</a>
+    </nav>
+
+    <div class="content"></div>
+
+    <footer>
+      <a href="#about"  class="footer-link">ABOUT</a>
+      <a href="#contact"  class="footer-link">CONTACT</a>
+    </footer>
+  </script>
+
+  
+
+  
+
+</body></html>

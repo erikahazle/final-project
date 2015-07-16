@@ -45,7 +45,7 @@ h3 {
 }
 
 #create-product-display, .create-product-options {
-  min-height: 600px;
+  min-height: 700px;
   display: inline-block;
   float: left;
 }
