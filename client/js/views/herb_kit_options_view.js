@@ -1,6 +1,89 @@
 var herbNumber = [];
 var capacity = 0;
 
+function correctProductPositions() {
+  if ($('#Planter-img').attr('visibility') === 'visible') {
+    $('#Basil-img').attr({
+      y: '145px',
+      height: '280px',
+      x: '185px',
+    });
+
+    $('#Thyme-img').attr({
+      height: '550px',
+      y: '-8px',
+      x: '185px',
+    });
+
+    $('#Mint-img').attr({
+      height: '500px',
+      y: '10px',
+      x: '220px'
+    });
+
+  } else if ($('#Planter_2-img').attr('visibility') === 'visible') {
+    $('#Basil-img').attr({
+      height: '320px',
+      x: '185px',
+      y: '56px'
+    });
+    $('#Thyme-img').attr({
+      height: '550px',
+      y: '-75px',
+      x: '185px'
+    });
+    $('#Mint-img').attr({
+      height: '600px',
+      y: '-110px',
+      x: '220px'
+    });
+  } else if ($('#Planter_3-img').attr('visibility') === 'visible') {
+    // debugger;
+    // checking the position of the herb
+    if(capacity == 2) {
+      if (herbNumber[0] == 'Thyme-img') {
+        $('#Thyme-img').attr({
+          height: '250px',
+          y: '178px',
+          x: '120px'
+        });
+      } else if (herbNumber[0] == 'Basil-img') {
+        $('#Basil-img').attr({
+          height: '150px',
+          y: '228px',
+          x: '115px'
+        });
+      } else if (herbNumber[0] == 'Mint-img') {
+        $('#Mint-img').attr({
+          height: '210px',
+          y: '175px',
+          x: '130px'
+        });
+      }
+
+      if (herbNumber[1] == 'Thyme-img') {
+        $('#Thyme-img').attr({
+          height: '250px',
+          y: '190px',
+          x: '260px'
+        });
+      } else if (herbNumber[1] == 'Basil-img') {
+        $('#Basil-img').attr({
+          height: '150px',
+          y: '237px',
+          x: '246px'
+        });
+      } else if (herbNumber[1] == 'Mint-img') {
+        $('#Mint-img').attr({
+          height: '210px',
+          y: '175px',
+          x: '260px'
+        });
+      }
+    }
+  }
+}
+
 app.HerbKitOptionsView = Backbone.View.extend({
   tagName: 'li',
   events: {
@@ -28,6 +111,7 @@ app.HerbKitOptionsView = Backbone.View.extend({
       $('.svg-herb-products').attr('visibility', 'hidden');
       $('.svg-planter-products').attr('visibility', 'hidden');
       $('#' + svgImage).attr('visibility', 'visible');
+      herbNumber = [];
       capacity = this.model.attributes.capacity;
     } else {
       // Checking the capacity of the selected planter to see how many plants it can take
@@ -39,64 +123,10 @@ app.HerbKitOptionsView = Backbone.View.extend({
         herbNumber.push(svgImage);
       }
       $('#' + svgImage).attr('visibility', 'visible');
+      correctProductPositions();
     }
 
     // Changing SVG image position depending on which planter has been selected
-    if ($('#Planter-img').attr('visibility') === 'visible') {
-      $('#Basil-img').attr({
-        y: '145px'
-      });
-      $('#Thyme-img').attr({
-        height: '500px',
-        y: '28px'
-      });
-
-      $('#Mint-img').attr({
-        height: '500px',
-        y: '10px',
-        x: '220px'
-      });
-
-    } else if ($('#Planter_2-img').attr('visibility') === 'visible') {
-      $('#Basil-img').attr({
-        height: '320px',
-        y: '56px'
-      });
-      $('#Thyme-img').attr({
-        height: '550px',
-        y: '-75px'
-      });
-      $('#Mint-img').attr({
-        height: '600px',
-        y: '-110px',
-        x: '220px'
-      });
-    } else if ($('#Planter_3-img').attr('visibility') === 'visible') {
-      // debugger;
-      // checking the position of the herb
-      if (herbNumber[0] == 'Thyme-img') {
-        $('#Thyme-img').attr({
-          height: '250px',
-          y: '178px',
-          x: '120px'
-        });
-      } else if (herbNumber[0] == 'Basil-img') {
-        $('#Basil-img').attr({
-          height: '150px',
-          y: '228px',
-          x: '115px'
-        });
-      } else if (herbNumber[0] == 'Mint-img') {
-        $('#Mint-img').attr({
-          height: '400px',
-          y: '-110px',
-          x: '220px'
-        });
-      }
-
-    }
-  
-    
+ 
   }
-  
 })
