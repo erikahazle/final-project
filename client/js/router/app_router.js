@@ -6,21 +6,32 @@ app.AppRouter = Backbone.Router.extend({
     "products": "showProducts",
     "signup": "signupForm",
     "login": "loginForm",
-    "profile": "showUserProfile"
+    "account": "showUserAccount",
+    "logout": "logOut",
+    "basket": "showBasket"
   },
   initialize: function() {
     app.layoutView = new app.LayoutView();
     $('.page-wrapper').html(app.layoutView.render().el);
+    var token = Cookies.get("authentication_token");
+
+    if(token === undefined) {
+      console.log('not logged in')
+      new app.LoggedOutView().render();
+    } else {
+      console.log('logged in');
+      new app.LoggedInView().render();
+    }
   },
   showProducts: function() {
     console.log('showing products');
   },
   home: function() {
-
     $('.content').empty();
+    app.homeView = new app.HomeView();
+    app.homeView.render();
   },
   createHerbKit: function() {
-
     app.products = new app.Products([]);
     app.products.fetch({
       success: function(data){
@@ -33,19 +44,44 @@ app.AppRouter = Backbone.Router.extend({
     });
   },
   signupForm: function() {
-    app.signupForm = new app.SignupView();
-    app.signupForm.render();
+    new app.SignupView().render();
   },
   loginForm: function() {
-    var user = new app.UserSignup();
-    app.loginForm = new app.LoginView();
-    app.loginForm.render();
+    new app.LoginView().render();
   },
-  showUserProfile: function() {
-    // console.log('showing user profile');
-    app.profile = new app.UserProfileView();
-    app.profile.render();
+  showUserAccount: function() {
+    var token = Cookies.get("authentication_token");
+    if (token !== undefined) {
+      $.ajax({
+        type: "GET",
+        url: "http://localhost:3000/users/" + token,  
+        dataType: 'json'
+      }).done(function(data) {
+        app.profile = new app.UserAccountView({model: data});
+        app.profile.render();
+      })
+    } else {
+      app.router.navigate('#login');
+      app.router.loginForm();
+    }
+  },
+  logOut: function() {
+    var token = Cookies.get("authentication_token");
+    $.ajax({
+      type: "DELETE",
+      url: "http://localhost:3000/users/" + token,
+      dataType: "json"
+    }).done(function(data) {
+      Cookies.remove("authentication_token");
+      app.router.navigate("");
+      app.layoutView = new app.LayoutView();
+      $('.page-wrapper').html(app.layoutView.render().el);
+      new app.LoggedOutView().render();
+      app.router.home();
+    })
+  },
+  showBasket: function() {
+    
   }
 
-  
 })

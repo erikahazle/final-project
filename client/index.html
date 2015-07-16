@@ -13,6 +13,8 @@
   <script src="js/collections/products.js"></script>
   <script src="js/views/layout_view.js"></script>
   <script src="js/router/app_router.js"></script>
+  <script src="js/views/logged_out_view.js"></script>
+  <script src="js/views/logged_in_view.js"></script>
   <script src="js/views/create_herb_kit_view.js"></script>
   <script src="js/views/herb_kit_options_view.js"></script>
   <script src="js/models/user_signup.js"></script>
@@ -20,6 +22,8 @@
   <script src="js/views/user_profile_view.js"></script>
   <script src="js/views/login_view.js"></script>
   <script src="js/models/user.js"></script>
+  <script src="js/views/home_view.js"></script>
+
 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
@@ -31,11 +35,19 @@
 
   <div class="page-wrapper"></div>
 
+
+  <script type="text/x-underscore-template" id="home-view">
+    <div class="home-content">
+      <h2>Grow your own Kitchen garden</h2>
+      <a href="#create" id="grow-button">Create your Herb Kit</a>
+    </div>
+  </script>
+
   <script type="text/x-underscore-template" id="user-profile">
     <div class="user-details">
       <h2>Your details:</h2>
-      <p>Email: <%= email %></p>
       <p>Password: ********</p>
+      <p>Email: <%= email %></p>
     </div>
     <div>
       <h2>Recent orders:</h2>
@@ -43,7 +55,7 @@
   </script>
 
   <script type="text/x-underscore-template" id="login-form">
-    <h2 id="login-h2">Please enter your login details</h2>
+    <h2>Please enter your login details</h2>
     <form id="login">
         <input type="text" id="email" name="email" placeholder="Please enter your email"/>
         <input type="password" id="password" name="password" placeholder="Please enter your password"/>
@@ -87,17 +99,23 @@
       </div>
     </div>
   </script>
+
+  <script type="text/x-underscore-template" id="logged-out-view">
+    <a href="#signup" class="nav-link logged-out">Sign Up</a>
+    <a href="#login" class="nav-link logged-out">Log In</a>
+  </script>
+
+  <script type="text/x-underscore-template" id="logged-in-view">
+    <a href="#logout" class="nav-link logged-in">Log Out</a>
+    <a href="#account" class="nav-link logged-in">Account</a>
+  </script>
   
 
   <script type="text/x-underscore-template" id="layout-view">
-    <nav>
+    <nav id="nav">
       <a href="#"  class="nav-link">HOME</a>
       <a href="#create" class="nav-link">CREATE YOUR OWN</a>
       <a href="#products" class="nav-link">PRODUCTS</a>
-      <a href="#signup" class="nav-link">Sign Up</a>
-      <a href="#login" class="nav-link">Log In</a>
-      <a href="#logout" class="nav-link">Log Out</a>
-
     </nav>
 
     <div class="content"></div>

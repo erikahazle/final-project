@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       }
 
   devise_scope :user do 
-    get "/users/:authentication_token", to: "sessions#show"
-    delete "/users/:authentication_token", to: "sessions#destroy"
+    get "/users/:authentication_token", to: "users/sessions#show"
+    delete "/users/:authentication_token", to: "users/sessions#destroy"
   end
 
   

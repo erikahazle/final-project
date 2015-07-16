@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  # include ActionController::MimeResponds
+  # include ActionController::MixmeResponds
   # include ActionController::ImplicitRender
 
 # before_filter :configure_sign_up_params, only: [:create]

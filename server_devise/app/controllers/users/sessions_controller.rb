@@ -1,5 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
 
+  include ActionController::MimeResponds
+  include ActionController::ImplicitRender
   skip_before_filter :require_no_authentication, only: [:create]
 
   def create
@@ -25,6 +27,7 @@ class Users::SessionsController < Devise::SessionsController
   end
 
   def destroy
+      binding.pry
       # session[:user_id] = nil
       sign_out current_user
       render :json => {:success => true, :message => 'SUCCESS: logged out'}
