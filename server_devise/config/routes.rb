@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'orders/index'
+
+  get 'orders/show'
+
+  get 'orders/destroy'
+
   root "products#index"
-  resources :products
+  resources :products, :orders, :product_orders
 
   devise_for :users, controllers: {
         sessions: 'users/sessions',
