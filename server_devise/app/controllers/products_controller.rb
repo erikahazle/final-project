@@ -4,15 +4,9 @@ class ProductsController < ApplicationController
     render json: products
   end
 
-  def edit
+  def show
+    product = Product.where(id: params[:id])
+    render json: product
   end
 
-  def new
-  end
-
-  def create
-  end
-
-  def destroy
-  end
 end

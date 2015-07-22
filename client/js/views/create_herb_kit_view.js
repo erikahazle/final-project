@@ -1,3 +1,25 @@
+function addtoCart() {
+  var token = Cookies.get("authentication_token");
+  if (token !== undefined) {
+    $.ajax({
+      type: "GET",
+      url: "http://localhost:3000/users/" + token,  
+      dataType: 'json'
+    }).done(function(data) {
+      for(i = 0; i < itemsToBuy.length; i++) {
+        var cart = new app.Cart({product_id: itemsToBuy[i], user_id: data.current_user.id});
+         if (cart.save()) {
+          app.router.navigate('#shopping_cart');
+          app.router.showCart();
+         }
+      }
+    })
+  } else {
+    app.router.navigate('#login');
+    app.router.loginForm();
+  }
+}                                                       
+
 app.CreateHerbKitView = Backbone.View.extend({
   events: {
     'click .create-product-options h3': 'showOptions'
@@ -21,9 +43,10 @@ app.CreateHerbKitView = Backbone.View.extend({
   showOptions: function(e) {
     if (e.toElement.innerText === "Planters") {
       $('.planter-options').toggleClass('hide');
-    } else {
-      console.log('herbs');
+    } else if (e.toElement.innerText === "Herbs") {
       $('.herb-options').toggleClass('hide');
+    } else {
+      addtoCart();
     }
   }
 });

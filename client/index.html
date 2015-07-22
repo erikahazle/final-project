@@ -22,7 +22,14 @@
   <script src="js/views/user_profile_view.js"></script>
   <script src="js/views/login_view.js"></script>
   <script src="js/models/user.js"></script>
+  <script src="js/models/order.js"></script>
   <script src="js/views/home_view.js"></script>
+  <script src="js/views/shopping_cart_view.js"></script>
+  <script src="js/views/shopping_cart_item_view.js"></script>
+  <script src="js/models/cart.js"></script>
+  <script src="js/collections/cart.js"></script>
+
+
 
 
 
@@ -36,9 +43,24 @@
   <div class="page-wrapper"></div>
 
 
+  <script type="text/x-underscore-template" id="shopping-cart">
+    <h2>Shopping Cart</h2>
+    <div id="shopping-cart-wrapper">
+      <p>No items just yet. Create your own KitchenGarden <a href="#create">here</a>.</p>
+    </div>
+  </script>
+
+  <script type="text/x-underscore-template" id="shopping-cart-item">
+    <div class="cart-item">
+      <img src="<%= image %>">
+      <p><%= name %></p>
+      <p>£<%= price %></p>
+    </div>
+  </script>
+
   <script type="text/x-underscore-template" id="home-view">
     <div class="home-content">
-      <h2>Grow your own Kitchen garden</h2>
+      <h2>Grow your own Kitchen Garden</h2>
       <a href="#create" id="grow-button">Create your Herb Kit</a>
     </div>
   </script>
@@ -46,16 +68,16 @@
   <script type="text/x-underscore-template" id="user-profile">
     <div class="user-details">
       <h2>Your details:</h2>
-      <p>Password: ********</p>
       <p>Email: <%= email %></p>
+      <p>Password: ********</p>
     </div>
-    <div>
+    <div class="recent-orders-list">
       <h2>Recent orders:</h2>
     </div>
   </script>
 
   <script type="text/x-underscore-template" id="login-form">
-    <h2>Please enter your login details</h2>
+    <h2 id="login-h2">Log in here:</h2>
     <form id="login">
         <input type="text" id="email" name="email" placeholder="Please enter your email"/>
         <input type="password" id="password" name="password" placeholder="Please enter your password"/>
@@ -64,7 +86,7 @@
   </script>
 
   <script type="text/x-underscore-template" id="signup-form">
-    <h2 id="signup-h2">Sign up here</h2>
+    <h2 id="signup-h2">Sign up here:</h2>
     <form id="signup">
         <input type="text" id="name" name="name" placeholder="Please enter your name"/>
         <input type="text" id="email" name="email" placeholder="Please enter your email"/>
@@ -79,25 +101,28 @@
       <p class="options-info"><%= name %></p>
       <p class="options-info">£<%= price %></p>
   </script>
-    
+   
   <script type="text/x-underscore-template" id="create-herb-kit-view">
-    <h3>Build your own Kitchen Garden</h3>
-    <svg version="1.1"
-     baseProfile="full"
-     xmlns="http://www.w3.org/2000/svg" id="create-product-display"></svg>
-    <div class="create-product-options">
-      <div>
-        <h3>Planters <i class="fa fa-arrow-down"></i></h3>
-        <ul class="planter-options"></ul>
+    <div class="herb-kit-wrapper">
+      <svg version="1.1"
+       baseProfile="full"
+       xmlns="http://www.w3.org/2000/svg" id="create-product-display">
+        <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="images/herbkittext.png" x="185px" y="-100px" height="800px" width="600px" visibility="visible" id="herb-kit-text" class="svg-planter-products"></image></svg>
+       </svg>
+      <div class="create-product-options">
+        <div>
+          <h3>Planters <i class="fa fa-arrow-down"></i></h3>
+          <ul class="planter-options"></ul>
+        </div>
+        <div>
+          <h3>Herbs <i class="fa fa-arrow-down"></i></h3>
+          <ul class="herb-options hide"></ul>
+        </div>
+        <div>
+          <h3 class="checkout">Happy? Checkout here...</h3>
+        </div>
       </div>
-      <div>
-        <h3>Herbs <i class="fa fa-arrow-down"></i></h3>
-        <ul class="herb-options hide"></ul>
-      </div>
-      <div>
-        <h3 class="checkout">Happy? Checkout here...</h3>
-      </div>
-    </div>
+    </div> 
   </script>
 
   <script type="text/x-underscore-template" id="logged-out-view">
@@ -106,6 +131,7 @@
   </script>
 
   <script type="text/x-underscore-template" id="logged-in-view">
+    <a href="#shopping_cart" class="nav-link logged-in">Shopping Cart</a>
     <a href="#logout" class="nav-link logged-in">Log Out</a>
     <a href="#account" class="nav-link logged-in">Account</a>
   </script>
@@ -113,6 +139,7 @@
 
   <script type="text/x-underscore-template" id="layout-view">
     <nav id="nav">
+      <a href="#"  class="nav-link brand-name">MyKitchenGarden</a>
       <a href="#"  class="nav-link">HOME</a>
       <a href="#create" class="nav-link">CREATE YOUR OWN</a>
     </nav>

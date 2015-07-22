@@ -23,16 +23,21 @@ class Users::SessionsController < Devise::SessionsController
   end 
 
   def show
-    # orders = current_user.orders
-    render json: current_user
+    cart = []
+    current_user.carts.each do |item|
+      cart << item.product
+    end
+
+    render json: {
+      :current_user => current_user,
+      :cart => cart
+    }
   end
 
   def destroy
-      # binding.pry
-      # session[:user_id] = nil
-      sign_out current_user
-      render :json => {:success => true, :message => 'SUCCESS: logged out'}
-    end
+    sign_out current_user
+    render :json => {:success => true, :message => 'SUCCESS: logged out'}
+  end
 
   private
     def current_user

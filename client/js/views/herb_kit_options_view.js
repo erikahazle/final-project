@@ -1,4 +1,7 @@
 var herbNumber = [];
+var itemsToBuy = [];
+var planterId = '';
+var planter = '';
 var capacity = 0;
 
 function correctProductPositions() {
@@ -105,28 +108,30 @@ app.HerbKitOptionsView = Backbone.View.extend({
     }
   },
   showProductInSVG: function(e) {
-    var svgImage = this.model.attributes.name + "-img";
-    
+    var svgImage = this.model.attributes.name + "-img"; 
     if (this.model.attributes.product_type === 'planter') {
       $('.svg-herb-products').attr('visibility', 'hidden');
       $('.svg-planter-products').attr('visibility', 'hidden');
       $('#' + svgImage).attr('visibility', 'visible');
+      planter = this.model.attributes.name;
+      planterId = this.model.attributes.id
       herbNumber = [];
+      itemsToBuy = [];
       capacity = this.model.attributes.capacity;
     } else {
       // Checking the capacity of the selected planter to see how many plants it can take
       if (herbNumber.length < capacity) {
+        // debugger;
         herbNumber.push(svgImage);
+        itemsToBuy.push(this.model.attributes.id);
       } else {
         $('#' + herbNumber[0]).attr('visibility', 'hidden');
         herbNumber.shift();
         herbNumber.push(svgImage);
+        itemsToBuy.push(this.model.attributes.id)
       }
       $('#' + svgImage).attr('visibility', 'visible');
       correctProductPositions();
     }
-
-    // Changing SVG image position depending on which planter has been selected
- 
   }
 })

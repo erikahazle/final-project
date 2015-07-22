@@ -8,7 +8,7 @@ app.AppRouter = Backbone.Router.extend({
     "login": "loginForm",
     "account": "showUserAccount",
     "logout": "logOut",
-    "basket": "showBasket"
+    "shopping_cart": "showCart"
   },
   initialize: function() {
     app.layoutView = new app.LayoutView();
@@ -80,8 +80,8 @@ app.AppRouter = Backbone.Router.extend({
       app.router.home();
     })
   },
-  showBasket: function() {
-    
+  showCart: function() {
+    new app.ShoppingCartView().render();
   }
 
 })

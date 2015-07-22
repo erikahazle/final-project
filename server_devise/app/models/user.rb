@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   has_many :orders, dependent: :destroy
+  has_many :carts, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -17,7 +18,6 @@ class User < ActiveRecord::Base
    end
 
    def ensure_authentication_token
-    # binding.pry
      if authentication_token.blank?
        self.authentication_token = generate_authentication_token
      end

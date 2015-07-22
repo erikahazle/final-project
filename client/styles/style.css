@@ -3,7 +3,6 @@ LAYOUT
 *********************/
 
 .page-wrapper {
-  /*background-color: rgb(61, 66, 63);*/
   max-height: 560px;
 }
 
@@ -13,10 +12,14 @@ div, h3 {
 }
 
 .nav-link, .footer-link {
-  padding-right: 20px;
+  margin-right: 20px;
   font-size: 20px;
   text-decoration: none;
   color: rgb(61, 66, 63);
+}
+
+.nav-link:hover {
+  border-bottom: 2px solid rgb(61, 66, 63);
 }
 
 .logged-in, .logged-out {
@@ -31,12 +34,22 @@ nav, footer {
 
 nav {
   text-align: right;
-  /*border-bottom: 4px solid black;*/
+  border-bottom: 2px dotted rgb(61, 66, 63);
 }
 
 footer {
+  border-top: 2px dotted rgb(61, 66, 63);
   text-align: center;
   clear: both;
+}
+
+.brand-name {
+  float: left;
+  padding-left: 20px;
+}
+
+.brand-name:hover {
+  border: none;
 }
 
 /********************
@@ -45,6 +58,46 @@ CONTENT
 
 .content {
   min-height: 560px;
+  text-align: center;
+}
+
+/********************
+SIGNUP PAGE
+*********************/
+
+#signup, #login {
+  display: block;
+  text-align: center;
+}
+
+input {
+  display: block;
+  margin: 30px auto;
+  width: 250px;
+  border: 2px solid rgb(61, 66, 63);
+}
+
+input[type="submit"] {
+  width: 100px;
+  background-color: rgb(61, 66, 63);
+  color: rgb(210, 227, 214);
+  border-radius: 10px;
+  border: 2px solid rgb(210, 227, 214);
+}
+
+#signup-h2, #login-h2 {
+  margin-top: 100px;
+  color: rgb(61, 66, 63);
+}
+
+/********************
+ACCOUNT PAGE
+*********************/
+
+.user-details, .recent-orders-list {
+  text-align: left;
+  margin: 30px;
+  color: rgb(61, 66, 63);
 }
 
 /********************
@@ -55,13 +108,18 @@ h3 {
   text-align: center;
   height: 50px;
   padding: 20px;
-  background-color: green;
+  background-color: rgb(61, 66, 63);
+}
+
+.herb-kit-wrapper {
+  margin-top: 40px;
 }
 
 #create-product-display, .create-product-options {
   min-height: 700px;
   display: inline-block;
   float: left;
+  text-align: left;
 }
 
 #create-product-display {
