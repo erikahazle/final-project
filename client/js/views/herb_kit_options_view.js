@@ -121,7 +121,6 @@ app.HerbKitOptionsView = Backbone.View.extend({
     } else {
       // Checking the capacity of the selected planter to see how many plants it can take
       if (herbNumber.length < capacity) {
-        // debugger;
         herbNumber.push(svgImage);
         itemsToBuy.push(this.model.attributes.id);
       } else {

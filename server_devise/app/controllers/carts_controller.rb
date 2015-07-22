@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   def create
+    # binding.pry
     cart = Cart.create(user_id: params[:user_id], product_id: params[:product_id])
     render json: cart
   end

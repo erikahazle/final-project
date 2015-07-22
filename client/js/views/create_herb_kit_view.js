@@ -8,10 +8,10 @@ function addtoCart() {
     }).done(function(data) {
       for(i = 0; i < itemsToBuy.length; i++) {
         var cart = new app.Cart({product_id: itemsToBuy[i], user_id: data.current_user.id});
-         if (cart.save()) {
+        if (cart.save()) {
           app.router.navigate('#shopping_cart');
           app.router.showCart();
-         }
+        }
       }
     })
   } else {
