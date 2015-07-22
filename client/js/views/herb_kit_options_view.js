@@ -41,8 +41,6 @@ function correctProductPositions() {
       x: '220px'
     });
   } else if ($('#Planter_3-img').attr('visibility') === 'visible') {
-    // debugger;
-    // checking the position of the herb
     if(capacity == 2) {
       if (herbNumber[0] == 'Thyme-img') {
         $('#Thyme-img').attr({
@@ -119,15 +117,15 @@ app.HerbKitOptionsView = Backbone.View.extend({
       itemsToBuy = [];
       capacity = this.model.attributes.capacity;
     } else {
-      // Checking the capacity of the selected planter to see how many plants it can take
       if (herbNumber.length < capacity) {
         herbNumber.push(svgImage);
         itemsToBuy.push(this.model.attributes.id);
       } else {
         $('#' + herbNumber[0]).attr('visibility', 'hidden');
         herbNumber.shift();
+        itemsToBuy.shift();
         herbNumber.push(svgImage);
-        itemsToBuy.push(this.model.attributes.id)
+        itemsToBuy.push(this.model.attributes.id);
       }
       $('#' + svgImage).attr('visibility', 'visible');
       correctProductPositions();

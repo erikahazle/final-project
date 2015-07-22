@@ -83,5 +83,4 @@ app.AppRouter = Backbone.Router.extend({
   showCart: function() {
     new app.ShoppingCartView().render();
   }
-
 })

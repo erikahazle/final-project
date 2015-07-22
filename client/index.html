@@ -42,15 +42,16 @@
   <script type="text/x-underscore-template" id="shopping-cart">
     <h2>Shopping Cart</h2>
     <div id="shopping-cart-wrapper">
-      <p>No items just yet. Create your own KitchenGarden <a href="#create">here</a>.</p>
+      <p id="no-cart-items">No items just yet. Create your own KitchenGarden <a href="#create">here</a>.</p>
     </div>
   </script>
 
   <script type="text/x-underscore-template" id="shopping-cart-item">
-    <div class="cart-item">
-      <img src="<%= image %>">
-      <p><%= name %></p>
-      <p>£<%= price %></p>
+    <div class="cart-item-wrapper">
+      <img src="<%= image %>" class="cart-item-img">
+      <p class="cart-item"><%= name %></p>
+      <p class="cart-item">£<%= price %></p>
+      <i class="fa fa-times fa-2x remove-cart-item"></i>
     </div>
   </script>
 
@@ -64,7 +65,7 @@
   <script type="text/x-underscore-template" id="user-profile">
     <div class="user-details">
       <h2>Your details:</h2>
-      <p>Email: <%= email %></p>
+      <p>Email: <%= current_user.email %></p>
       <p>Password: ********</p>
     </div>
     <div class="recent-orders-list">

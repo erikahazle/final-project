@@ -187,9 +187,39 @@ HOME PAGE
   border: 2px solid white;
 }
 
+/********************
+SHOPPING CART
+********************/
 
+.cart-item-img, .cart-item {
+  display: inline-block;
+  min-height: 200px;
+  width: 200px;
+  vertical-align: top;
+}
 
+.cart-item {
+  width: 300px;
+  margin: 0;
+  line-height: 200px;
+}
 
+.cart-item-img {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.cart-item-wrapper {
+  text-align: top;
+  vertical-align: center;
+}
+
+.remove-cart-item {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30px;
+  padding-top: 85px;
+}
 
 
 
