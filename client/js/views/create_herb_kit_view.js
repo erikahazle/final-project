@@ -7,7 +7,6 @@ function addtoCart() {
       url: "http://localhost:3000/users/" + token,  
       dataType: 'json'
     }).done(function(data) {
-      // debugger;
       for(i = 0; i < itemsToBuy.length; i++) {
         var cart = new app.Cart({product_id: itemsToBuy[i], user_id: data.current_user.id});
         if (cart.save()) {

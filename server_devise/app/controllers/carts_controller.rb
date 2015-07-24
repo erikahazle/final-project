@@ -10,4 +10,10 @@ class CartsController < ApplicationController
     render json: carts
   end
 
+  def destroy
+    cart = Cart.where(product_id: params[:product_id], user_id: params[:user_id])[0]
+    cart.destroy
+    render json: cart
+  end
+
 end

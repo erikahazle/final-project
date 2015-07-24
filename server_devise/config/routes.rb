@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
   root "products#index"
-  resources :products, :orders, :product_orders, :carts
+  resources :products, :orders, :carts
 
-  get "/carts/users_id" => "index#carts"
+  delete "/carts/delete" => "destroy#carts"
+
+  get "/carts/:users_id" => "index#carts"
   
   devise_for :users, controllers: {
         sessions: 'users/sessions',
