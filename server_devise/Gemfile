@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.1.5'
 
 gem 'rails', '4.2.1'
 
@@ -13,9 +14,6 @@ gem 'pg'
 
 gem 'devise'
 gem 'responders', '~> 2.0'
-
-# gem 'acts_as_shopping_cart', '~> 0.2.1'
-# gem 'shoppe'
 
 gem 'rack-cors', :require => 'rack/cors'
 
